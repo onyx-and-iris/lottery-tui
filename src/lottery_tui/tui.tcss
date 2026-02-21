@@ -61,9 +61,7 @@ LotteryTUI {
     text-style: bold italic;
 }
 
-/* Additional styling for potential future widgets */
-
-/* Button styling for lottery buttons */
+/* Button styling */
 Button {
     background: #ffd700;
     border: round #e6c200;
@@ -84,22 +82,6 @@ Button:focus {
     background: #e6c200;
     border: round #b8860b;
     color: #1a1a2e;
-}
-
-/* Input styling for lottery number inputs */
-Input {
-    background: #2d3748;
-    border: round #4a5568;
-    color: #ffd700;
-    height: 3;
-    margin: 1;
-    padding: 0 1;
-}
-
-Input:focus {
-    background: #374151;
-    border: round #ffd700;
-    color: #ffed4a;
 }
 
 /* Label styling */
@@ -132,7 +114,7 @@ Label {
     color: #1a1a2e;
 }
 
-/* Results Label Styling - Enhanced Appearance */
+/* Results Label Styling */
 #result-label {
     background: #1a365d;
     border: thick #ffd700;
@@ -144,133 +126,4 @@ Label {
     text-style: bold;
     content-align: left middle;
     width: 100%;
-}
-
-/* Container for lottery number display */
-.lottery-numbers {
-    align: center middle;
-    background: #2d3748;
-    border: round #ffd700;
-    height: auto;
-    margin: 2;
-    padding: 2;
-}
-
-/* Individual lottery number balls */
-.lottery-ball {
-    background: #ffd700;
-    border: round #e6c200;
-    color: #1a1a2e;
-    height: 3;
-    margin: 0 1;
-    text-align: center;
-    text-style: bold;
-    width: 6;
-}
-
-.lottery-ball:hover {
-    background: #ffed4a;
-    color: #16213e;
-}
-
-/* Results display */
-.results {
-    background: #1a202c;
-    border: round #4a5568;
-    color: #e2e8f0;
-    height: auto;
-    margin: 2;
-    padding: 2;
-}
-
-.winning-number {
-    color: #48bb78;
-    text-style: bold;
-}
-
-.losing-number {
-    color: #f56565;
-    text-style: italic;
-}
-
-/* Status bar */
-.status-bar {
-    background: #2d3748;
-    color: #a0aec0;
-    dock: bottom;
-    height: 1;
-    padding: 0 1;
-}
-
-/* Header */
-.header {
-    background: #ffd700;
-    color: #1a1a2e;
-    dock: top;
-    height: 3;
-    text-align: center;
-    text-style: bold;
-}
-
-/* Footer */
-.footer {
-    background: #1a1a2e;
-    color: #a0aec0;
-    dock: bottom;
-    height: 1;
-    text-align: center;
-    text-style: italic;
-}
-
-/* Sidebar styling */
-.sidebar {
-    background: #2d3748;
-    border-right: solid #4a5568;
-    dock: left;
-    width: 20;
-}
-
-/* Content area */
-.content {
-    background: $surface;
-    margin: 1;
-    padding: 1;
-}
-
-/* Error messages */
-.error {
-    background: #fed7d7;
-    border: round #f56565;
-    color: #c53030;
-    margin: 1;
-    padding: 1;
-    text-style: bold;
-}
-
-/* Success messages */
-.success {
-    background: #c6f6d5;
-    border: round #48bb78;
-    color: #22543d;
-    margin: 1;
-    padding: 1;
-    text-style: bold;
-}
-
-/* Loading spinner */
-.loading {
-    color: #ffd700;
-    text-align: center;
-    text-style: bold;
-}
-
-/* Prize display */
-.prize {
-    background: #ffd700;
-    border: round #e6c200;
-    color: #1a1a2e;
-    margin: 1;
-    padding: 2;
-    text-align: center;
-    text-style: bold;
 }
