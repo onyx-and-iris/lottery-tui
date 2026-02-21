@@ -37,11 +37,17 @@ class LotteryTUI(App):
     def on_button_pressed(self, event):
         """Handle button press events."""
         if event.button.id == 'draw-button':
+            if self.query_one('#lottery-select').is_blank():
+                self.query_one('#result-label').update(
+                    'Please select a lottery before drawing.'
+                )
+                return
+
             selected_lottery = self.query_one('#lottery-select').value
+
             try:
                 lottery_obj = request_lottery_obj(selected_lottery)
                 result = lottery_obj.draw()
-                self.query_one('#result-label').update(f'Result: {result}')
             except ValueError as e:
                 self.query_one('#result-label').update(str(e))
 
