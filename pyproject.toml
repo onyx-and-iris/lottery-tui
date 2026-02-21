@@ -1,6 +1,6 @@
 [project]
 name = "lottery-tui"
-version = "0.1.1"
+version = "0.2.0"
 description = "A terminal user interface for lottery games."
 authors = [{ name = "onyx-and-iris", email = "code@onyxandiris.online" }]
 dependencies = ["textual>=8.0.0"]
@@ -11,5 +11,13 @@ license = { text = "MIT" }
 [project.scripts]
 lottery-tui = "lottery_tui.tui:main"
 
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
+
 [tool.pdm]
 distribution = true
+
+[tool.pdm.build]
+package-dir = "src"
+includes = ["src/**/*", "README.md", "LICENSE"]
