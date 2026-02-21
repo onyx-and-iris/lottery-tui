@@ -3,7 +3,7 @@
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm.fming.dev)
 [![Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
 [![PyPI - Version](https://img.shields.io/pypi/v/lottery-tui.svg)](https://pypi.org/project/lottery-tui)
-[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lottery-tui.svg)](https://pypi.org/project/q3rcon-tui)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/lottery-tui.svg)](https://pypi.org/project/lottery-tui)
 
 -----
 
