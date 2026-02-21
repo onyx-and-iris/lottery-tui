@@ -103,7 +103,7 @@ class Thunderball(Lottery):
     and 1 "Thunderball" number from a separate pool of 1 to 14, also without replacement.
     """
 
-    POSSIBLE_NUMBERS = range(1, 40)  # Thunderball numbers range from 1 to 39
+    POSSIBLE_NUMBERS = range(1, 40)
 
     def draw(self) -> Result:
         """Perform a Thunderball draw."""
