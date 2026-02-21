@@ -1,0 +1,15 @@
+[project]
+name = "lottery-tui"
+version = "0.1.0"
+description = "A terminal user interface for lottery games."
+authors = [{ name = "onyx-and-iris", email = "code@onyxandiris.online" }]
+dependencies = ["textual>=8.0.0"]
+requires-python = ">=3.10"
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.scripts]
+lottery-tui = "lottery_tui.tui:main"
+
+[tool.pdm]
+distribution = true

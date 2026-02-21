@@ -1,0 +1,276 @@
+/* Lottery TUI CSS Styling */
+
+/* Global App Styling */
+LotteryTUI {
+    background: $surface;
+}
+
+/* Main Container */
+#main-container {
+    align: center middle;
+    background: #1a1a2e;
+    border: round #ffd700;
+    border-title-align: center;
+    border-title-color: #ffd700;
+    border-title-style: bold;
+    height: auto;
+    layout: vertical;
+    margin: 2;
+    min-height: 20;
+    min-width: 60;
+    padding: 3 5;
+    width: auto;
+}
+
+/* Welcome Message */
+#welcome {
+    color: #ffd700;
+    content-align: center middle;
+    height: auto;
+    margin: 0 0 2 0;
+    padding: 1;
+    text-style: bold;
+    width: 100%;
+}
+
+/* Instructions */  
+#instructions {
+    color: #a0aec0;
+    content-align: center middle;
+    height: auto;
+    margin: 1 0 0 0;
+    padding: 1;
+    text-style: italic;
+    width: 100%;
+}
+
+/* Lottery Select Styling */
+#lottery-select {
+    margin: 1 0 2 0;
+    width: 100%;
+}
+
+/* Hover Effects */
+#welcome:hover {
+    color: #ffed4a;
+    text-style: bold italic;
+}
+
+#instructions:hover {
+    color: #cbd5e0;
+    text-style: bold italic;
+}
+
+/* Additional styling for potential future widgets */
+
+/* Button styling for lottery buttons */
+Button {
+    background: #ffd700;
+    border: round #e6c200;
+    color: #1a1a2e;
+    height: 3;
+    margin: 1;
+    min-width: 12;
+    text-style: bold;
+}
+
+Button:hover {
+    background: #ffed4a;
+    border: round #ffd700;
+    color: #16213e;
+}
+
+Button:focus {
+    background: #e6c200;
+    border: round #b8860b;
+    color: #1a1a2e;
+}
+
+/* Input styling for lottery number inputs */
+Input {
+    background: #2d3748;
+    border: round #4a5568;
+    color: #ffd700;
+    height: 3;
+    margin: 1;
+    padding: 0 1;
+}
+
+Input:focus {
+    background: #374151;
+    border: round #ffd700;
+    color: #ffed4a;
+}
+
+/* Label styling */
+Label {
+    color: #e2e8f0;
+    margin: 0 0 1 0;
+    text-style: bold;
+}
+
+/* Draw Button Specific Styling */
+#draw-button {
+    background: #ffd700;
+    border: round #e6c200;
+    color: #1a1a2e;
+    height: 3;
+    margin: 1 0 0 0;
+    text-style: bold;
+    width: 100%;
+}
+
+#draw-button:hover {
+    background: #ffed4a;
+    border: round #ffd700;
+    color: #16213e;
+}
+
+#draw-button:focus {
+    background: #e6c200;
+    border: round #b8860b;
+    color: #1a1a2e;
+}
+
+/* Results Label Styling - Enhanced Appearance */
+#result-label {
+    background: #1a365d;
+    border: thick #ffd700;
+    color: #ffffff;
+    height: auto;
+    margin: 1 0 0 0;
+    min-height: 4;
+    padding: 1 2;
+    text-style: bold;
+    content-align: left middle;
+    width: 100%;
+}
+
+/* Container for lottery number display */
+.lottery-numbers {
+    align: center middle;
+    background: #2d3748;
+    border: round #ffd700;
+    height: auto;
+    margin: 2;
+    padding: 2;
+}
+
+/* Individual lottery number balls */
+.lottery-ball {
+    background: #ffd700;
+    border: round #e6c200;
+    color: #1a1a2e;
+    height: 3;
+    margin: 0 1;
+    text-align: center;
+    text-style: bold;
+    width: 6;
+}
+
+.lottery-ball:hover {
+    background: #ffed4a;
+    color: #16213e;
+}
+
+/* Results display */
+.results {
+    background: #1a202c;
+    border: round #4a5568;
+    color: #e2e8f0;
+    height: auto;
+    margin: 2;
+    padding: 2;
+}
+
+.winning-number {
+    color: #48bb78;
+    text-style: bold;
+}
+
+.losing-number {
+    color: #f56565;
+    text-style: italic;
+}
+
+/* Status bar */
+.status-bar {
+    background: #2d3748;
+    color: #a0aec0;
+    dock: bottom;
+    height: 1;
+    padding: 0 1;
+}
+
+/* Header */
+.header {
+    background: #ffd700;
+    color: #1a1a2e;
+    dock: top;
+    height: 3;
+    text-align: center;
+    text-style: bold;
+}
+
+/* Footer */
+.footer {
+    background: #1a1a2e;
+    color: #a0aec0;
+    dock: bottom;
+    height: 1;
+    text-align: center;
+    text-style: italic;
+}
+
+/* Sidebar styling */
+.sidebar {
+    background: #2d3748;
+    border-right: solid #4a5568;
+    dock: left;
+    width: 20;
+}
+
+/* Content area */
+.content {
+    background: $surface;
+    margin: 1;
+    padding: 1;
+}
+
+/* Error messages */
+.error {
+    background: #fed7d7;
+    border: round #f56565;
+    color: #c53030;
+    margin: 1;
+    padding: 1;
+    text-style: bold;
+}
+
+/* Success messages */
+.success {
+    background: #c6f6d5;
+    border: round #48bb78;
+    color: #22543d;
+    margin: 1;
+    padding: 1;
+    text-style: bold;
+}
+
+/* Loading spinner */
+.loading {
+    color: #ffd700;
+    text-align: center;
+    text-style: bold;
+}
+
+/* Prize display */
+.prize {
+    background: #ffd700;
+    border: round #e6c200;
+    color: #1a1a2e;
+    margin: 1;
+    padding: 2;
+    text-align: center;
+    text-style: bold;
+}
