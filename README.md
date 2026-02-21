@@ -25,7 +25,7 @@ uv tool install lottery-tui
 *with pipx*
 
 ```console
-pipx install lotter-tui
+pipx install lottery-tui
 ```
 
 The TUI should now be discoverable as lottery-tui.
