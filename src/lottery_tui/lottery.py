@@ -12,7 +12,7 @@ class Result(NamedTuple):
 
     def __str__(self) -> str:
         """Return a string representation of the lottery result."""
-        out = f'Numbers: {", ".join(str(n) for n in self.numbers)}'
+        out = f'Numbers: {", ".join(str(n) for n in sorted(self.numbers))}'
         if self.bonus:
             match self.kind:
                 case 'EuroMillions':
@@ -23,7 +23,7 @@ class Result(NamedTuple):
                     bonus_name = 'Thunderball'
                 case _:
                     bonus_name = 'Bonus Numbers'
-            out += f'\n{bonus_name}: {", ".join(str(n) for n in self.bonus)}'
+            out += f'\n{bonus_name}: {", ".join(str(n) for n in sorted(self.bonus))}'
         return out
 
 

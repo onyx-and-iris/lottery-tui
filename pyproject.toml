@@ -1,6 +1,6 @@
 [project]
 name = "lottery-tui"
-version = "0.2.1"
+version = "0.2.2"
 description = "A terminal user interface for lottery games."
 authors = [{ name = "onyx-and-iris", email = "code@onyxandiris.online" }]
 dependencies = ["textual>=8.0.0"]
