@@ -40,7 +40,7 @@ class Lottery(ABC):
     """An abstract base class for different types of lotteries."""
 
     @abstractmethod
-    def draw(self):
+    def draw(self) -> Result:
         """Perform a lottery draw."""
 
 
@@ -54,7 +54,7 @@ class UKlotto(Lottery):
 
     POSSIBLE_NUMBERS = range(1, 60)
 
-    def draw(self):
+    def draw(self) -> Result:
         """Perform a UK Lotto draw."""
         result = random.sample(UKlotto.POSSIBLE_NUMBERS, 6)
         return Result(kind='UK Lotto', numbers=result, bonus=None)
@@ -71,7 +71,7 @@ class EuroMillions(Lottery):
     POSSIBLE_NUMBERS = range(1, 51)
     POSSIBLE_BONUS_NUMBERS = range(1, 13)
 
-    def draw(self):
+    def draw(self) -> Result:
         """Perform a EuroMillions draw."""
         numbers = random.sample(EuroMillions.POSSIBLE_NUMBERS, 5)
         bonus = random.sample(EuroMillions.POSSIBLE_BONUS_NUMBERS, 2)
@@ -88,7 +88,7 @@ class SetForLife(Lottery):
 
     POSSIBLE_NUMBERS = range(1, 40)
 
-    def draw(self):
+    def draw(self) -> Result:
         """Perform a Set For Life draw."""
         numbers = random.sample(SetForLife.POSSIBLE_NUMBERS, 5)
         life_ball = [random.randint(1, 10)]
@@ -105,7 +105,7 @@ class Thunderball(Lottery):
 
     POSSIBLE_NUMBERS = range(1, 40)  # Thunderball numbers range from 1 to 39
 
-    def draw(self):
+    def draw(self) -> Result:
         """Perform a Thunderball draw."""
         numbers = random.sample(Thunderball.POSSIBLE_NUMBERS, 5)
         thunderball = [random.randint(1, 14)]
