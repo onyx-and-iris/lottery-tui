@@ -19,7 +19,7 @@ class LotteryTUI(App):
             Static('Pick a lottery to play:', id='instructions'),
             Select(
                 options=[
-                    ('UK Lotto', 'uklotto'),
+                    ('Lotto', 'lotto'),
                     ('EuroMillions', 'euromillions'),
                     ('Set For Life', 'setforlife'),
                     ('Thunderball', 'thunderball'),

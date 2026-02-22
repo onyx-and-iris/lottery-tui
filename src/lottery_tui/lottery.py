@@ -45,18 +45,18 @@ class Lottery(ABC):
 
 
 @register_lottery
-class UKLotto(Lottery):
-    """A class representing the UK Lotto lottery.
+class Lotto(Lottery):
+    """A class representing the Lotto lottery.
 
-    UK Lotto draws 6 numbers from a pool of 1 to 59, without replacement.
-    There is no bonus number in UK Lotto.
+    Lotto draws 6 numbers from a pool of 1 to 59, without replacement.
+    There is no bonus number in Lotto.
     """
 
     POSSIBLE_NUMBERS = range(1, 60)
 
     def draw(self) -> Result:
-        """Perform a UK Lotto draw."""
-        result = random.sample(UKLotto.POSSIBLE_NUMBERS, 6)
+        """Perform a Lotto draw."""
+        result = random.sample(Lotto.POSSIBLE_NUMBERS, 6)
         return Result(kind=type(self).__name__, numbers=result, bonus=None)
 
 
