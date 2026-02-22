@@ -1,3 +1,5 @@
+from loguru import logger
+from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.containers import Container
 from textual.widgets import Button, Label, Select, Static
@@ -37,21 +39,31 @@ class LotteryTUI(App):
     def on_button_pressed(self, event):
         """Handle button press events."""
         if event.button.id == 'draw-button':
-            if self.query_one('#lottery-select').is_blank():
-                self.query_one('#result-label').update(
-                    'Please select a lottery before drawing.'
-                )
-                return
+            self._draw_button_handler()
 
-            selected_lottery = self.query_one('#lottery-select').value
+    def _draw_button_handler(self):
+        """Handle the draw button press."""
+        if self.query_one('#lottery-select').is_blank():
+            self._update_result_label(
+                Text('Please select a lottery before drawing.', style='bold #ff8c42')
+            )
+            return
 
-            try:
-                lottery_obj = request_lottery_obj(selected_lottery)
-                result = lottery_obj.draw()
-            except ValueError as e:
-                self.query_one('#result-label').update(str(e))
+        selected_lottery = self.query_one('#lottery-select').value
 
-            self.query_one('#result-label').update(str(result))
+        try:
+            lottery_obj = request_lottery_obj(selected_lottery)
+        except ValueError:
+            ERR_MSG = f'Invalid lottery selection: {selected_lottery}'
+            logger.exception(ERR_MSG)
+            raise
+
+        result = lottery_obj.draw()
+        self._update_result_label(str(result))
+
+    def _update_result_label(self, message: str):
+        """Update the result label with a new message."""
+        self.query_one('#result-label').update(message)
 
 
 def main():
