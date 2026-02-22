@@ -83,7 +83,7 @@ class SetForLife(Lottery):
     """A class representing the Set For Life lottery.
 
     Set For Life draws 5 numbers from a pool of 1 to 39, without replacement,
-    and 1 "Life Ball" number from a separate pool of 1 to 10, also without replacement.
+    and 1 "Life Ball" number from a separate pool of 1 to 10.
     """
 
     POSSIBLE_NUMBERS = range(1, 40)
@@ -100,7 +100,7 @@ class Thunderball(Lottery):
     """A class representing the Thunderball lottery.
 
     Thunderball draws 5 numbers from a pool of 1 to 39, without replacement,
-    and 1 "Thunderball" number from a separate pool of 1 to 14, also without replacement.
+    and 1 "Thunderball" number from a separate pool of 1 to 14.
     """
 
     POSSIBLE_NUMBERS = range(1, 40)
