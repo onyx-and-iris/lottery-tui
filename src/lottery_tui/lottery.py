@@ -17,7 +17,7 @@ class Result(NamedTuple):
             match self.kind:
                 case 'EuroMillions':
                     bonus_name = 'Lucky Stars'
-                case 'Set For Life':
+                case 'SetForLife':
                     bonus_name = 'Life Ball'
                 case 'Thunderball':
                     bonus_name = 'Thunderball'
@@ -45,10 +45,10 @@ class Lottery(ABC):
 
 
 @register_lottery
-class UKlotto(Lottery):
+class UKLotto(Lottery):
     """A class representing the UK Lotto lottery.
 
-    Uk Lotto draws 6 numbers from a pool of 1 to 59, without replacement.
+    UK Lotto draws 6 numbers from a pool of 1 to 59, without replacement.
     There is no bonus number in UK Lotto.
     """
 
@@ -56,8 +56,8 @@ class UKlotto(Lottery):
 
     def draw(self) -> Result:
         """Perform a UK Lotto draw."""
-        result = random.sample(UKlotto.POSSIBLE_NUMBERS, 6)
-        return Result(kind='UK Lotto', numbers=result, bonus=None)
+        result = random.sample(UKLotto.POSSIBLE_NUMBERS, 6)
+        return Result(kind=type(self).__name__, numbers=result, bonus=None)
 
 
 @register_lottery
@@ -75,7 +75,7 @@ class EuroMillions(Lottery):
         """Perform a EuroMillions draw."""
         numbers = random.sample(EuroMillions.POSSIBLE_NUMBERS, 5)
         bonus = random.sample(EuroMillions.POSSIBLE_BONUS_NUMBERS, 2)
-        return Result(kind='EuroMillions', numbers=numbers, bonus=bonus)
+        return Result(kind=type(self).__name__, numbers=numbers, bonus=bonus)
 
 
 @register_lottery
@@ -92,7 +92,7 @@ class SetForLife(Lottery):
         """Perform a Set For Life draw."""
         numbers = random.sample(SetForLife.POSSIBLE_NUMBERS, 5)
         life_ball = [random.randint(1, 10)]
-        return Result(kind='Set For Life', numbers=numbers, bonus=life_ball)
+        return Result(kind=type(self).__name__, numbers=numbers, bonus=life_ball)
 
 
 @register_lottery
@@ -109,7 +109,7 @@ class Thunderball(Lottery):
         """Perform a Thunderball draw."""
         numbers = random.sample(Thunderball.POSSIBLE_NUMBERS, 5)
         thunderball = [random.randint(1, 14)]
-        return Result(kind='Thunderball', numbers=numbers, bonus=thunderball)
+        return Result(kind=type(self).__name__, numbers=numbers, bonus=thunderball)
 
 
 def request_lottery_obj(lottery_name: str) -> Lottery:

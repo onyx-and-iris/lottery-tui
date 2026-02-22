@@ -1,6 +1,6 @@
 [project]
 name = "lottery-tui"
-version = "0.2.4"
+version = "0.2.5"
 description = "A terminal user interface for lottery games."
 authors = [{ name = "onyx-and-iris", email = "code@onyxandiris.online" }]
 dependencies = ["textual>=8.0.0", "loguru>=0.7.3"]
@@ -13,6 +13,7 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Programming Language :: Python :: Implementation :: CPython",
     "Programming Language :: Python :: Implementation :: PyPy",
 ]
