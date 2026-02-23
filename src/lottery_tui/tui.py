@@ -1,6 +1,10 @@
+from typing import NoReturn
+
 from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.containers import Container
+from textual.events import Key
+from textual.types import SelectType
 from textual.widgets import Button, Label, Select, Static
 
 from .lottery import request_lottery_obj
@@ -30,29 +34,36 @@ class LotteryTUI(App):
             id='main-container',
         )
 
-    def on_key(self, event):
+    def on_key(self, event: Key) -> NoReturn:
         """Handle key events."""
         if event.key == 'q':
             self.exit()
 
-    def on_button_pressed(self, event):
+    def on_button_pressed(self, event: Button.Pressed) -> None:
         """Handle button press events."""
         if event.button.id == 'draw-button':
             self._draw_button_handler()
 
-    def _draw_button_handler(self):
+    def _draw_button_handler(self) -> None:
         """Handle the draw button press."""
-        if self.query_one('#lottery-select').is_blank():
+        if self._read_lottery_selection() is None:
             self._update_result_label(
                 Text('Please select a lottery before drawing.', style='bold #ff8c42')
             )
             return
 
-        lottery_obj = request_lottery_obj(self.query_one('#lottery-select').value)
+        lottery_obj = request_lottery_obj(self._read_lottery_selection())
         result = lottery_obj.draw()
         self._update_result_label(str(result))
 
-    def _update_result_label(self, message: str):
+    def _read_lottery_selection(self) -> SelectType | None:
+        """Read the selected lottery from the dropdown."""
+        select_widget = self.query_one('#lottery-select')
+        if select_widget.is_blank():
+            return None
+        return select_widget.value
+
+    def _update_result_label(self, message: str) -> None:
         """Update the result label with a new message."""
         self.query_one('#result-label').update(message)
 
