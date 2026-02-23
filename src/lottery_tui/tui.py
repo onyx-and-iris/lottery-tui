@@ -1,4 +1,3 @@
-from loguru import logger
 from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.containers import Container
@@ -49,15 +48,7 @@ class LotteryTUI(App):
             )
             return
 
-        selected_lottery = self.query_one('#lottery-select').value
-
-        try:
-            lottery_obj = request_lottery_obj(selected_lottery)
-        except ValueError:
-            ERR_MSG = f'Invalid lottery selection: {selected_lottery}'
-            logger.exception(ERR_MSG)
-            raise
-
+        lottery_obj = request_lottery_obj(self.query_one('#lottery-select').value)
         result = lottery_obj.draw()
         self._update_result_label(str(result))
 

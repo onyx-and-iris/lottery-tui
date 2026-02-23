@@ -1,18 +1,30 @@
 import random
 from abc import ABC, abstractmethod
-from typing import NamedTuple
+from dataclasses import dataclass
+
+from loguru import logger
 
 
-class Result(NamedTuple):
-    """A named tuple to hold the results of a lottery draw."""
+@dataclass(frozen=True)
+class Result:
+    """A dataclass to hold the results of a lottery draw with auto-sorted numbers."""
 
     kind: str
     numbers: list[int]
     bonus: list[int] | None
 
+    def __post_init__(self):
+        """Sort the numbers after initialization.
+
+        We use super().__setattr__ to bypass the frozen nature of the dataclass for sorting.
+        """
+        super().__setattr__('numbers', sorted(self.numbers))
+        if self.bonus:
+            super().__setattr__('bonus', sorted(self.bonus))
+
     def __str__(self) -> str:
         """Return a string representation of the lottery result."""
-        out = f'Numbers: {", ".join(str(n) for n in sorted(self.numbers))}'
+        out = f'Numbers: {", ".join(str(n) for n in self.numbers)}'
         if self.bonus:
             match self.kind:
                 case 'EuroMillions':
@@ -23,7 +35,7 @@ class Result(NamedTuple):
                     bonus_name = 'Thunderball'
                 case _:
                     bonus_name = 'Bonus Numbers'
-            out += f'\n{bonus_name}: {", ".join(str(n) for n in sorted(self.bonus))}'
+            out += f'\n{bonus_name}: {", ".join(str(n) for n in self.bonus)}'
         return out
 
 
@@ -116,5 +128,7 @@ def request_lottery_obj(lottery_name: str) -> Lottery:
     """Return a lottery object based on the provided lottery name."""
     lottery_cls = registry.get(lottery_name.lower())
     if lottery_cls is None:
-        raise ValueError(f"Lottery '{lottery_name}' not found.")
+        ERR_MSG = f"Lottery '{lottery_name}' not found. Available lotteries: {', '.join(registry.keys())}"
+        logger.error(ERR_MSG)
+        raise ValueError(ERR_MSG)
     return lottery_cls()
