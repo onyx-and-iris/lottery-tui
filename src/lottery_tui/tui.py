@@ -1,6 +1,5 @@
 from typing import NoReturn
 
-from rich.text import Text
 from textual.app import App, ComposeResult
 from textual.containers import Container
 from textual.events import Key
@@ -27,6 +26,8 @@ class LotteryTUI(App):
                     ('Set For Life', 'setforlife'),
                     ('Thunderball', 'thunderball'),
                 ],
+                value='lotto',
+                allow_blank=False,
                 id='lottery-select',
             ),
             Button('Draw', id='draw-button'),
@@ -46,22 +47,13 @@ class LotteryTUI(App):
 
     def _draw_button_handler(self) -> None:
         """Handle the draw button press."""
-        if self._read_lottery_selection() is None:
-            self._update_result_label(
-                Text('Please select a lottery before drawing.', style='bold #ff8c42')
-            )
-            return
-
         lottery_obj = request_lottery_obj(self._read_lottery_selection())
         result = lottery_obj.draw()
         self._update_result_label(str(result))
 
-    def _read_lottery_selection(self) -> SelectType | None:
+    def _read_lottery_selection(self) -> SelectType:
         """Read the selected lottery from the dropdown."""
-        select_widget = self.query_one('#lottery-select')
-        if select_widget.is_blank():
-            return None
-        return select_widget.value
+        return self.query_one('#lottery-select').value
 
     def _update_result_label(self, message: str) -> None:
         """Update the result label with a new message."""
