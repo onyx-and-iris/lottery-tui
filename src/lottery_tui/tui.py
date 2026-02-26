@@ -28,6 +28,7 @@ class LotteryTUI(App):
                 ],
                 value='lotto',
                 allow_blank=False,
+                type_to_search=True,
                 id='lottery-select',
             ),
             Button('Draw', id='draw-button'),
