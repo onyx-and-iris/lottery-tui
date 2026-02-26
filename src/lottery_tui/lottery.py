@@ -94,11 +94,11 @@ class EuroMillions(Lottery):
 class SetForLife(Lottery):
     """A class representing the Set For Life lottery.
 
-    Set For Life draws 5 numbers from a pool of 1 to 39, without replacement,
+    Set For Life draws 5 numbers from a pool of 1 to 47, without replacement,
     and 1 "Life Ball" number from a separate pool of 1 to 10.
     """
 
-    POSSIBLE_NUMBERS = range(1, 40)
+    POSSIBLE_NUMBERS = range(1, 48)
 
     def draw(self) -> Result:
         """Perform a Set For Life draw."""
